@@ -30,3 +30,5 @@ COPY knot.conf.DISTRIBUTION /root/knot
 EXPOSE 53/tcp
 EXPOSE 53/udp
 VOLUME [ "/etc/knot" ]
+
+CMD ["knotd","-c","/etc/knot/knot.conf"]
