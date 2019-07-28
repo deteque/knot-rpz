@@ -1,2 +1,0 @@
-#!/bin/sh
-/bin/grep -E "warn|error" /var/log/knot/knot.log

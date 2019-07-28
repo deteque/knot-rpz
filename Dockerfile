@@ -2,8 +2,7 @@ FROM debian:buster-slim
 LABEL maintainer="Andrew Fried <afried@deteque.com>"
 ENV KNOT_VERSION 2.8.3
 
-RUN mkdir -p /root/knot \
-	&& apt-get clean \
+RUN apt-get clean \
 	&& apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
 		apt-transport-https \
@@ -21,11 +20,6 @@ RUN mkdir -p /root/knot \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
 		knot \
 		knot-dnsutils
-
-COPY show-errors /root/knot
-COPY MASTER-RESET.sh /root/knot
-COPY knot.conf.EXAMPLE /root/knot
-COPY knot.conf.DISTRIBUTION /root/knot
 
 EXPOSE 53/tcp
 EXPOSE 53/udp
