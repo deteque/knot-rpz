@@ -18,7 +18,7 @@ Your customized version of the knot configuration file (knot.conf) will need to 
 # Running the Knot image
 You should start the docker image using this syntax:
 
-	docker run --name knot-rpz --rm --detach -v /etc/knot:/etc/knot -p 53:53/udp -p 53:53/tcp knot-rpz
+	docker run --name knot-rpz --rm --detach -v /etc/knot:/etc/knot -p 53:53/udp -p 53:53/tcp deteque/knot-rpz
 
 A breakdown of the command:
 	--name will name the docker process
