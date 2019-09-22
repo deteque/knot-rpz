@@ -5,11 +5,13 @@ This docker image is designed to pull various Response Policy Zones (RPZ) from c
 Your base server should have at least 4 CPU cores and 6GB of RAM.  All of the files that Knot creates will be placed in a bind mounted volume under /etc/knot.  Becuase the docker image will contain its own users and groups, we need to create that directory with liberal permissions.
 
 On your server, execute the following commands:
+<pre>
 	mkdir -p /etc/knot
 	mkdir -p /etc/knot/timers
 	mkdir -p /etc/knot/journal
 	mkdir -p /etc/knot/zonefiles
 	chmod -R 1777 /etc/knot/
+</pre>
 
 Your customized version of the knot configuration file (knot.conf) will need to be placed in /etc/knot.  As a go-by, the image has a template of knot.conf in the /tmp directory of the docker image.  You can also simply download that file from Docker Hub and modify it accordingly.
 
@@ -48,39 +50,7 @@ Finally, in the "template:" section, there is a line looks like this:
 That line needs to be edited to include the actual names of the servers you pull the zones from, exactly as they appear in the id: portion in the "remote: " section.
 
 # Contents of the sample knot.conf file
-M debian:buster-slim
-LABEL maintainer="Andrew Fried <afried@deteque.com>"
-ENV KNOT_VERSION 2.8.3
-
-RUN apt-get clean \
-	&& apt-get update \
-	&& apt-get -y dist-upgrade \
-	&& apt-get install --no-install-recommends --no-install-suggests -y \
-		apt-transport-https \
-		ca-certificates \
-		lsb-release \
-		locate \
-		net-tools\
-		procps \
-		rsync \
-		sipcalc \
-		vim \
-		wget \
-	&& wget -O /etc/apt/trusted.gpg.d/knot-latest.gpg https://deb.knot-dns.cz/knot-latest/apt.gpg \
-	&& echo "deb https://deb.knot-dns.cz/knot-latest/ buster main" > /etc/apt/sources.list.d/knot-latest.list \
-	&& apt-get update \
-	&& apt-get install --no-install-recommends --no-install-suggests -y \
-		knot \
-		knot-dnsutils \
-	&& ldconfig \
-	&& updatedb
-
-EXPOSE 53/tcp 53/udp
-
-VOLUME [ "/etc/knot" ]
-
-CMD ["knotd","-c","/etc/knot/knot.conf"]
-root@DOCKER:~/docker/knot-rpz# cat knot.conf
+```
 server:
   listen: [ 0.0.0.0@53, ::@53 ]
   user: knot:knot
@@ -257,5 +227,7 @@ zone:
 #------------------------------------------------------------------------------
 
 # - domain: zrd.host.dtq
+```
+
 
 
