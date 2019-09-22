@@ -4,6 +4,7 @@ ENV KNOT_VERSION 2.8.3
 
 RUN apt-get clean \
 	&& apt-get update \
+	&& apt-get -y dist-upgrade \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
 		apt-transport-https \
 		ca-certificates \
@@ -11,6 +12,7 @@ RUN apt-get clean \
 		locate \
 		net-tools\
 		procps \
+		rsync \
 		sipcalc \
 		vim \
 		wget \
@@ -19,10 +21,12 @@ RUN apt-get clean \
 	&& apt-get update \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
 		knot \
-		knot-dnsutils
+		knot-dnsutils \
+	&& ldconfig \
+	&& updatedb
 
-EXPOSE 53/tcp
-EXPOSE 53/udp
+EXPOSE 53/tcp 53/udp
+
 VOLUME [ "/etc/knot" ]
 
 CMD ["knotd","-c","/etc/knot/knot.conf"]
