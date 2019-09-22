@@ -24,6 +24,8 @@ RUN apt-get clean \
 		knot-dnsutils \
 	&& ldconfig \
 	&& updatedb
+	
+COPY knot.conf /tmp/knot.conf.EXAMPLE
 
 EXPOSE 53/tcp 53/udp
 
