@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 LABEL maintainer="Andrew Fried <afried@deteque.com>"
-ENV KNOT_VERSION 2.8.3
+ENV KNOT_VERSION 2.8.4
 
 RUN apt-get clean \
 	&& apt-get update \
