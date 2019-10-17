@@ -61,6 +61,13 @@ server:
   version:
   nsid:
 
+database:
+  storage: /etc/knot/
+  timer-db: /etc/knot/timers/
+  journal-db: /etc/knot/journal/
+  journal-content: changes
+  journal-db-mode: robust
+
 mod-stats:
   - id: default
     request-protocol: on
@@ -124,10 +131,6 @@ template:
 
   - id: default
     storage: /etc/knot/zonefiles/
-    timer-db: /etc/knot/timers/
-    journal-db: /etc/knot/journal/
-    journal-content: changes
-    journal-db-mode: robust
     zonefile-load: difference
     semantic-checks: off
     disable-any: on
