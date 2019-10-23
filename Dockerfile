@@ -14,6 +14,7 @@ RUN apt-get clean \
 		procps \
 		rsync \
 		sipcalc \
+		tcpdump \
 		vim \
 		wget \
 	&& wget -O /etc/apt/trusted.gpg.d/knot-latest.gpg https://deb.knot-dns.cz/knot-latest/apt.gpg \
