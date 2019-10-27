@@ -66,7 +66,7 @@ database:
   timer-db: /etc/knot/timers/
   journal-db: /etc/knot/journal/
   journal-content: changes
-  journal-db-mode: robust
+  journal-db-mode: asynchronous
 
 mod-stats:
   - id: default
