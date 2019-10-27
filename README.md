@@ -135,7 +135,6 @@ template:
     semantic-checks: off
     disable-any: on
     master: [ rpzMaster_1, rpzMaster_2, rpzMaster_3 ]
-    file: /etc/knot/zonefiles/%s
     acl: [ private-distribution, deny_all ]
 
 #------------------------------------------------------------------------------
@@ -197,6 +196,7 @@ zone:
 #------------------------------------------------------------------------------
 # Deteque Malware RPZ Zones
 #------------------------------------------------------------------------------
+  - domain: malware.domains.dtq
   - domain: malware.edit.host.dtq
   - domain: malware.host.dtq
 
