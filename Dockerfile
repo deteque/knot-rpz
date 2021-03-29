@@ -1,7 +1,7 @@
 FROM debian:buster-slim
 LABEL maintainer="Andrew Fried <afried@deteque.com>"
 ENV KNOT_VERSION 3.0.5
-ENV BUILD_DATE 2021-03-26
+ENV BUILD_DATE 2021-03-29
 
 RUN apt-get clean \
 	&& apt-get update \
