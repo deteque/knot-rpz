@@ -18,19 +18,14 @@ RUN apt-get clean \
 		tcpdump \
 		vim \
 		wget \
-	&& wget -O /etc/apt/trusted.gpg.d/knot-latest.gpg https://deb.knot-dns.cz/knot-latest/apt.gpg \
+	&& wget -O /etc/apt/trusted.gpg.d/knot-latest.gpg https://deb.knot-dns.cz/apt.gpg \
 	&& echo "deb https://deb.knot-dns.cz/knot-latest/ buster main" > /etc/apt/sources.list.d/knot-latest.list \
 	&& apt-get update \
-	&& apt-get install --no-install-recommends --no-install-suggests -y \
-		knot \
-		knot-dnsutils \
+	&& apt-get install --no-install-recommends --no-install-suggests -y knot knot-dnsutils \
 	&& ldconfig \
 	&& updatedb
 
 COPY knot.conf /tmp/knot.conf.EXAMPLE
-
 EXPOSE 53/tcp 53/udp
-
 VOLUME [ "/etc/knot" ]
-
 CMD ["knotd","-c","/etc/knot/knot.conf"]
