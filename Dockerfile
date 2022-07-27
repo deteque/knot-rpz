@@ -1,7 +1,7 @@
 FROM debian:bullseye-slim
 LABEL maintainer="Andrew Fried <afried@deteque.com>"
 ENV KNOT_VERSION 3.1.8
-ENV BUILD_DATE 2022-07-03
+ENV BUILD_DATE 2022-07-27
 
 RUN apt-get clean \
 	&& apt-get update \
