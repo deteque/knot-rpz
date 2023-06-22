@@ -1,7 +1,7 @@
 FROM debian:bullseye-slim
 LABEL maintainer="Andrew Fried <afried@deteque.com>"
 ENV KNOT_VERSION 3.2.7
-ENV BUILD_DATE "2023-06-07"
+ENV BUILD_DATE "2023-06-22"
 
 RUN apt-get clean \
 	&& apt-get update \
@@ -9,6 +9,8 @@ RUN apt-get clean \
 	&& apt-get install --no-install-recommends --no-install-suggests -y \
 		apt-transport-https \
 		ca-certificates \
+		liburcu6 \
+		liburcu-dev \
 		lsb-release \
 		locate \
 		net-tools\
