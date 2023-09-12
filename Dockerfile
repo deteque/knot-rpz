@@ -1,7 +1,7 @@
 FROM debian:bookworm-slim
 LABEL maintainer="Andrew Fried <afried@deteque.com>"
-ENV KNOT_VERSION 3.2.9
-ENV BUILD_DATE "2023-08-27"
+ENV KNOT_VERSION 3.3.1
+ENV BUILD_DATE "2023-09-12"
 
 
 RUN apt-get clean \
