@@ -1,7 +1,7 @@
 FROM debian:bookworm-slim
 LABEL maintainer="Deteque <admin-deteque@spamhaus.com>"
-ENV KNOT_VERSION 3.3.3
-ENV BUILD_DATE "2024-01-05"
+ENV KNOT_VERSION 3.3.5
+ENV BUILD_DATE "2024-03-25"
 
 RUN apt-get clean \
 	&& apt-get update \
